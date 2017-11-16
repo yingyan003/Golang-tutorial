@@ -6,7 +6,7 @@ import (
 	//"io/ioutil"
 	//"io"
 )
-var path="/"
+//var path="/"
 
 func main(){
 	//系统的临时目录：/var/folders/v_/66t4cmys0sg90gdkll8wbvpm0000gn/T/
@@ -23,7 +23,7 @@ func main(){
 		fmt.Println("create os.MKdir:",err)
 	}
 
-	//创建文件
+	//创建文件,根据文件名（路径名：包括路径与文件名）。若路径不存在，返回nil
 	fcreate,err:=os.Create("./doc/uploadFiles/2.txt")
 	fmt.Println("fceate:",fcreate)
 
