@@ -80,7 +80,7 @@ func Upload(w http.ResponseWriter,r * http.Request){
 			}
 		}
 
-		//打开文件。如果文件不存在则创建，文件存在则以可读写的形式和指定权限（ModePerm）打开
+		//打开文件。如果文件不存在则创建（由os.O_CREATE指定），文件存在则以可读写（os.O_RDWR）的模式和指定权限（ModePerm）打开
 		f2,err:=os.OpenFile(uploadDir+sep+fileHeader.Filename,os.O_RDWR|os.O_CREATE,os.ModePerm)
 		if err!=nil{
 			fmt.Println(err)
