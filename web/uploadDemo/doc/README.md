@@ -22,6 +22,6 @@ map[Content-Disposition:[form-data; name="uploadFile"; filename="1.txt"] Content
 ## 使用说明
 -------------------
 
-1.启动服务端:run uploadServer.go
-2.打开html页面（可在系统文件夹下直接双击打开）
-3.选择文件，上传
+1. 启动服务端:run uploadServer.go
+2. 打开html页面（可在系统文件夹下直接双击打开）
+3. 选择文件，上传
