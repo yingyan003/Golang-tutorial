@@ -59,8 +59,8 @@ func Upload(w http.ResponseWriter, r *http.Request) {
 		//当前工作目录（linux下与pwd获取的一致）
 		path, err := os.Getwd()
 
-		//uploadDemo/doc/uploadFiles
-		uploadDir = path + sep + "doc" + sep + "uploadFiles"
+		//uploadDemo/uploadFiles
+		uploadDir = path + sep + "uploadFiles"
 
 		//判断目录是否存在
 		y, err := IsPathExists(uploadDir)
