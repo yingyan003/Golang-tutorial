@@ -1,10 +1,10 @@
-package main
+package md5
 
 import (
 	"net/http"
 	"fmt"
 	"os"
-	"Golang-tutorial/web/md5/src/md5Sum"
+	"Golang-tutorial/web/md5/md5Sum"
 )
 
 //对上传不熟悉的同学，请先移步upload demo
