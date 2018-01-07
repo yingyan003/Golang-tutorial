@@ -14,10 +14,12 @@
 structObj包中的httpClient封装了go的http请求.操作主要是2步：<br>
 
 1.建立请求
-```http.NewRequest(method, url, body)
+```
+http.NewRequest(method, url, body)
 ```
 2.发出请求
-```client.Do(hc.Req)
+```
+client.Do(hc.Req)
 ```
 <b>踩坑记</b><br>
 文件上传
@@ -26,7 +28,8 @@ structObj包中的httpClient封装了go的http请求.操作主要是2步：<br>
 * 只设Req.Header.Set("Content-Type","multipart/form-data")也报错，因缺少boundary
 
 笔者在这里为POST方式默认设置Content-Type（可覆盖）
-```if method == "POST" && hc.Req.Header.Get("contentType") == "" {
+```
+if method == "POST" && hc.Req.Header.Get("contentType") == "" {
 		w := new(multipart.Writer)
 		contentType := w.FormDataContentType()
 		hc.Req.Header.Set("Content-Type", contentType)
@@ -38,7 +41,8 @@ structObj包中的httpClient封装了go的http请求.操作主要是2步：<br>
 ## 模块2：json标签在http服务器与客户端间的使用
 
 所谓json标签形如下面👇的`json:"bucket"`
-```type FileSummary struct {
+```
+type FileSummary struct {
 	Bucket string   `json:"bucket"`
 	Files  []string `json:"files"`
 }
