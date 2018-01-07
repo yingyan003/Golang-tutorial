@@ -13,7 +13,6 @@ func main() {
 	http.HandleFunc("/d2", Download2)
 	http.HandleFunc("/upload", Upload)
 	http.ListenAndServe(":8000", nil)
-
 }
 
 //将本地文件返回客户端，方式1

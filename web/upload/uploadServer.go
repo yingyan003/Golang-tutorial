@@ -26,6 +26,8 @@ func main() {
 	http.ListenAndServe("localhost:8000", nil)
 }
 
+//处理器必须是func(w http.ResponseWriter, r *http.Request)函数类型的方法，
+//即"函数名（w http.ResponseWriter, r *http.Request) {。。。}"，其中函数名（处理器名）任意
 func Upload(w http.ResponseWriter, r *http.Request) {
 
 	//文件通过表单以POST方式提交
@@ -47,14 +49,14 @@ func Upload(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 
-		//知道包含该defer语句的函数（这里是Upload）执行完毕时，defer后的函数（file.Close()）才会被执行。
+		//直到包含该defer语句的函数（这里是Upload）执行完毕时，defer后的函数（file.Close()）才会被执行。
 		// 无论Upload是return正常返回，还是panic异常退出。保证资源被释放
 		defer fileTemp.Close()
 
 		//将header信息返回客户端
 		fmt.Fprintf(w, "fileHeader.Header:\n%v", fileHeader.Header)
 
-		//获取当前目录的绝对路径。一般通过开发工具（比如Gogland-EAP）提供的运行按钮运行时，
+		//获取当前目录的绝对路径。一般通过开发工具（比如Goland-EAP）提供的运行按钮运行时，
 		// Getwd()通常是项目根目录（这里是uploadDemo），但如果通过命令行运行时，获取的是
 		//当前工作目录（linux下与pwd获取的一致）
 		path, err := os.Getwd()

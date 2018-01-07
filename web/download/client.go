@@ -22,7 +22,7 @@ func main() {
 	defer res.Body.Close()
 	//将下载的文件存储到系统的临时目录中，文件目录是os.TempDir()
 	dir := os.TempDir()
-	tmp, err := ioutil.TempFile(dir, "zxy") //文件名前缀设置为"zxy"
+	tmp, err := ioutil.TempFile(dir, "zxy-") //文件名前缀设置为"zxy"
 	if err != nil {
 		fmt.Println("create temp file fail")
 	}
