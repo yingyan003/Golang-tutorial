@@ -22,6 +22,6 @@
 区间1：(a1,b1)
 区间2：（a2,b2）
 下面的表达式若为真，表示2个区间是否无交集：
-b1<a2||b2<a1
+(b1 < a2) || (b2 < a1)
 
 > 区间交集判断，参考：http://blog.csdn.net/mrwangweijin/article/details/76302778
