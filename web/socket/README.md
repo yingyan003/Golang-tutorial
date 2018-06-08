@@ -1,6 +1,6 @@
 # socket 连接示例
 
-本demo主要给出了socket连接的server端和client端的实现
+本文主要给出了socket连接的server端和client端的实现
 
 这里给出了2个例子
 

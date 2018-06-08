@@ -1,0 +1,27 @@
+# redis客户端使用小教程
+
+### 前言
+
+redis的go client有很多，这里使用redigo。
+
+本教程主要针对Redis的消息发布和订阅模式的使用。
+不清楚该模式的，可以参考：
+1. 快速入门：菜鸟教程（redis）
+2. 详解：http://redisbook.readthedocs.io/en/latest/feature/pubsub.html
+3. 官方使用文档：https://godoc.org/github.com/garyburd/redigo/redis#example-PubSubConn
+
+### 使用方式
+
+1. redis文件夹提供了对redigo的简单封装，这里只提供了几个常用的操作。
+
+2. pubsub.go文件的例子来自官网，使用pub/sub的初学者可先从该例子入手。把该例子看懂了也就差不多会用了。
+
+3. pub.go和sub.go实现了互为消息的发布者和订阅者
+    - pub.go先往一个频道里发布消息
+    - sub.go订阅该频道，
+    - sub.go一旦从频道中收到消息，就将处理结果发布到另一个频道
+    - pub.go订阅sub.go发布的频道，一旦收到消息就进行相应的处理。
+
+4. pub.go和sub.go是成对使用的，哪个先运行都可以。
+
+5. 访问redis，这里使用连接池的方式来访问。因为pub.go和sub.go的情况，这里设置了2个空闲连接。连接数可根据实际情况设置。

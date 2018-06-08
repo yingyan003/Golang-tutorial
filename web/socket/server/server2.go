@@ -82,6 +82,9 @@ func Handler(conn *websocket.Conn) {
 		//1.从上到下，找到第一个可执行的case（即该case对应的管道（<-）可以取出数据），执行它。后面就算有可执行的也忽略
 		//2.如果没有可执行的case，就执行default.否则不会执行defalt
 		//3.继续下一次循环
+		//注意：
+		// 1.select的循环，就算break也退出不了外层的for循环
+		// 2.select的case不能是bool类型，管道一定支持，其他自测吧
 		select {
 		//当timer.Rest设置的超时时间已到，此期间内server没接受到任何来自client的数据，则断开socket连接
 		case <-timeout:
